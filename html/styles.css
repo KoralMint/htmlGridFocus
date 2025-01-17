@@ -1,0 +1,74 @@
+body {
+    user-select: none;
+}
+
+#grid_area {
+    --size: 3rem;
+    --gap: 5px;
+    display: grid;
+    box-sizing: content-box;
+    grid-template-columns: repeat(auto-fill, var(--size));
+    grid-template-rows: repeat(auto-fill, var(--size));
+    width: calc( var(--columns) *  var(--size) + ( var(--columns) - 1 ) * var(--gap));
+    height: calc( var(--rows) *  var(--size) + ( var(--rows) - 1 ) * var(--gap));
+    border: 2px solid wheat;
+    border-radius: 7px;
+    padding: 5px;
+    grid-gap: var(--gap);   
+}
+
+.grid_item {
+    grid-column: span var(--width);
+    grid-row: span var(--height);
+    user-select: none;
+    color:transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: antiquewhite;
+}
+
+.grid_item:hover {
+    border: 2px solid tan;
+    color: tan;
+}
+
+#preview {
+    border-radius: 5px;
+    background: linear-gradient(-45deg, antiquewhite 25%, transparent 25%, transparent 50%, antiquewhite 50%, antiquewhite 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    animation: anime_stripe_1 0.8s infinite linear;
+}
+
+@keyframes anime_stripe_1 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 40px;
+    }
+}
+
+#templates_panel {
+    width: 100%;
+    height: 20rem;
+    overflow: auto;
+    display: grid;
+    grid-gap: 5px;
+    grid-auto-flow: dense;
+    grid-auto-rows: 3rem;
+    grid-template-columns: repeat(auto-fill, 3rem);
+}
+
+#trash_area {
+    width: 17rem;
+    height: 6rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    transition: 0.5s;
+}
